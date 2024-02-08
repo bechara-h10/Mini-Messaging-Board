@@ -39,6 +39,9 @@ app.use(function (err, req, res, next) {
   res.render("error");
 });
 
-module.exports.handler = serverless(app);
-
-module.exports = app;
+// Export the app if not running in a serverless environment
+if (!process.env.AWS_LAMBDA_FUNCTION_NAME) {
+  module.exports = app;
+} else {
+  module.exports.handler = serverless(app);
+}
