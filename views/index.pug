@@ -1,0 +1,14 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+  a.add-new-message(href="/new") Add a message
+  p Messages
+  ul.messages-list
+    each message in messages
+      li
+        p #{message.text} 
+         div from 
+         span.message-user #{message.user} 
+         span.message-date added at #{message.added}

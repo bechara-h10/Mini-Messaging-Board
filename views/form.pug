@@ -1,0 +1,12 @@
+extends layout 
+
+block content
+    form.new-message-form(role="form" method="POST",action="/new")
+        h3="What's on your mind today?"
+        div
+            label(for="authorName") Your Name
+            input(type="text",name="authorName",placeholder="John Doe" id="authorName")
+        div 
+            label(for="message") Your message
+            textarea(name="message",placeholder="Hello there...", id="message", rows="5")
+        button(type="submit",name="submitButton") Add message
