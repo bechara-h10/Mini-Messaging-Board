@@ -5,8 +5,8 @@ const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 const serverless = require("serverless-http");
 
-const indexRouter = require("./routes/index");
-const usersRouter = require("./routes/users");
+const indexRouter = require("../routes/index");
+const usersRouter = require("../routes/users");
 
 const app = express();
 
@@ -39,5 +39,5 @@ app.use(function (err, req, res, next) {
   res.render("error");
 });
 
-app.use("./netlify/app", indexRouter);
+app.use("/.netlify/functions/app", indexRouter);
 module.exports.handler = serverless(app);
